@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int maxScore(vector<int>& arr, int k) {
+        int n = arr.size();
+        int lsum = accumulate(arr.begin(), arr.begin()+k, 0);
+        int rsum = 0;
+        int ans = lsum;
+        for(int l = k-1, r = n-1; l>=0; l--, r--){
+            lsum-=arr[l];
+            rsum+=arr[r];
+            ans = max(ans,lsum+rsum);
+        }
+        return ans;
+    }
+};
