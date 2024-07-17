@@ -1,0 +1,14 @@
+class Solution {
+  public:
+    vector<vector<int>> uniquePerms(vector<int> &arr ,int n) {
+        // code here
+        sort(arr.begin(), arr.end());
+        set<vector<int>>st;
+        st.insert(arr);
+        while(next_permutation(arr.begin(), arr.end())){
+            st.insert(arr);
+        }
+        vector<vector<int>>ans(st.begin(), st.end());
+        return ans;
+    }
+};
